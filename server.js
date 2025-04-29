@@ -7,9 +7,12 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: '*',
+    origin: "*", // Puedes poner aquí tu frontend específico si quieres más seguro
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
+
 
 let sessions = {};
 
