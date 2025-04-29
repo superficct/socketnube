@@ -11,7 +11,6 @@ const io = socketIo(server, {
   }
 });
 
-
 let sessions = {};
 
 io.on('connection', (socket) => {
@@ -24,7 +23,7 @@ io.on('connection', (socket) => {
     callback(sessionId);  // Devolver el ID de la sesión al cliente
   });
 
-  // Unirse a una sesión existente
+
   socket.on('join-session', (sessionId) => {
     if (!sessions[sessionId]) {
       sessions[sessionId] = { cells: [] };  // Crear una nueva sesión si no existe
